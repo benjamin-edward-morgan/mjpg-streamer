@@ -1,3 +1,23 @@
+This is my fork of ArduCAM's fork that includes some notes on how to get this building and working on Raspberry PI OS Bookworm
+
+
+### Install (requires sudo)
+```
+apt-get install git gcc g++ cmake libjpeg9-dev libcamera-dev
+cd /opt
+git clone https://github.com/benjamin-edward-morgan/mjpg-streamer
+cd mjpeg-streamer/mjpeg-streamer-experimental
+make
+make install 
+```
+### Run 
+```
+LD_LIBRARY_PATH=. ./mjpg_streamer -i "input_libcamera.so" -o "output_http.so -l 0.0.0.0 -p 8081"
+```
+View the stream in a browser at `<pi's ip address>:8081/?action=stream`
+
+Original README follows
+
 mjpg-streamer
 =============
 
